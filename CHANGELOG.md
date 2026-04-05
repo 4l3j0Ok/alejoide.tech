@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/4l3j0Ok/alejoide.tech/compare/1.0.1...1.0.2) (2026-04-05)
+
+
+### Bug Fixes
+
+* **ci:** remove nginx service and configuration files from deployment setup ([60c4000](https://github.com/4l3j0Ok/alejoide.tech/commit/60c400011fe40763aa9adbeabcf2d52aeca0cd30))
+
 ## [1.0.1](https://github.com/4l3j0Ok/alejoide.tech/compare/1.0.0...1.0.1) (2026-04-05)
 
 
