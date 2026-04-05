@@ -5,8 +5,6 @@ services:
     restart: unless-stopped
     env_file:
       - ./config/web/.env
-    networks:
-      - internal
 
   nginx:
     image: nginx:1.29-alpine
