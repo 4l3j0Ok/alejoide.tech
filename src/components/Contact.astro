@@ -1,0 +1,198 @@
+---
+export const prerender = false;
+import Section from "../layouts/Section.astro";
+import ContactForm from "./ContactForm.tsx";
+import { Icon } from "astro-icon/components";
+import { PUBLIC_EMAIL } from "astro:env/client";
+---
+
+<Section sectionId="Contact" bg="muted">
+  <div class="section-label">Contacto</div>
+  <h2 class="section-title">Hablemos</h2>
+
+  <div class="layout">
+    <!-- Info col -->
+    <aside class="info-col">
+      <p class="info-lead">
+        Contanos qué le pasa a tu equipo y te respondo lo antes posible con un
+        presupuesto claro y sin vueltas.
+      </p>
+
+      <ul class="contact-list">
+        <li>
+          <div class="icon-box">
+            <Icon name="mdi:email-outline" />
+          </div>
+          <div>
+            <span class="clabel">Email</span>
+            <a href={`mailto:${PUBLIC_EMAIL}`}>{PUBLIC_EMAIL}</a>
+          </div>
+        </li>
+        <li>
+          <div class="icon-box">
+            <Icon name="mdi:map-marker-outline" />
+          </div>
+          <div>
+            <span class="clabel">Zona de cobertura</span>
+            <span class="cval">Argentina — consultá disponibilidad</span>
+          </div>
+        </li>
+        <li>
+          <div class="icon-box">
+            <Icon name="mdi:clock-outline" />
+          </div>
+          <div>
+            <span class="clabel">Tiempo de respuesta</span>
+            <span class="cval">Menos de 24 hs</span>
+          </div>
+        </li>
+      </ul>
+
+      <div class="free-diag">
+        <Icon name="mdi:currency-usd-off" />
+        <div>
+          <strong>Presupuesto sin compromiso</strong>
+          <p>Te cotizamos antes de arrancar. Sin sorpresas.</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Form col -->
+    <div class="form-col">
+      <ContactForm client:load />
+    </div>
+  </div>
+</Section>
+
+<style>
+  .section-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.7rem;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  /* Info col */
+  .info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .info-lead {
+    font-size: 0.97rem;
+    line-height: 1.7;
+    color: var(--textSecondary);
+  }
+
+  .contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+  .icon-box {
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 8px;
+    background: rgba(232, 98, 26, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .icon-box.green {
+    background: rgba(22, 163, 74, 0.1);
+    color: #16a34a;
+  }
+  .contact-list li > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+  .clabel {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--textMuted);
+  }
+  .contact-list a {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .contact-list a:hover {
+    color: var(--accentDark);
+  }
+  .cval {
+    font-size: 0.88rem;
+    color: var(--textPrimary);
+    font-weight: 500;
+  }
+
+  .free-diag {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+  }
+  .free-diag [data-icon] {
+    font-size: 1.6rem;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .free-diag strong {
+    font-size: 0.92rem;
+    color: var(--textPrimary);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+  .free-diag p {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--textSecondary);
+  }
+
+  /* Form col */
+  .form-col {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(20, 20, 20, 0.06);
+  }
+
+  @media (max-width: 900px) {
+    .layout {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

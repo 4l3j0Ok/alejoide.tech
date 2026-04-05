@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Services from "../components/Services.astro";
+import Contact from "../components/Contact.astro";
+import { webTitle, webDescription } from "../config/meta";
+---
+
+<Layout title={webTitle} description={webDescription}>
+  <main>
+    <Hero />
+    <Services />
+    <Contact />
+  </main>
+</Layout>

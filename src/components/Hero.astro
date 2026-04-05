@@ -1,0 +1,306 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section class="hero">
+  <div class="inner">
+    <div class="text-side">
+      <div class="eyebrow">
+        <span class="dot"></span> Servicio técnico para el partido de San Vicente.
+      </div>
+      <h1>Tu PC en manos de alguien que sabe.</h1>
+      <p class="lead">
+        Reparaciones, mantenimiento, armado de equipos y asesoramiento para que
+        tu tecnología no te deje colgado. Atención rápida y personalizada.
+      </p>
+      <div class="actions">
+        <a href="#Services" class="btn-ghost">Servicios</a>
+        <a href="#Contact" class="btn-primary">
+          <Icon name="mdi:wrench" /> Contactar
+        </a>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item">
+          <Icon name="mdi:check-circle-outline" />
+          <span>Presupuesto sin compromiso</span>
+        </div>
+        <div class="trust-item">
+          <Icon name="mdi:clock-fast" />
+          <span>Respuesta en 24 hs</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background: var(--bgSection);
+    padding: 6rem 0 5rem;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .inner {
+    width: var(--contentWidth);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  /* --- Text side --- */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: rgba(232, 98, 26, 0.08);
+    border: 1px solid rgba(232, 98, 26, 0.2);
+    border-radius: 999px;
+    padding: 0.3rem 0.85rem;
+    margin-bottom: 1.2rem;
+  }
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s ease infinite;
+  }
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 4.2vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.1rem;
+    color: var(--textPrimary);
+  }
+
+  .lead {
+    font-size: 1.08rem;
+    line-height: 1.7;
+    color: var(--textSecondary);
+    max-width: 44ch;
+    margin-bottom: 2rem;
+  }
+
+  .actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.4rem;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition:
+      background 0.18s ease,
+      transform 0.15s ease;
+  }
+  .btn-primary:hover {
+    background: var(--accentDark);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.4rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--textSecondary);
+    transition:
+      border-color 0.18s,
+      color 0.18s;
+  }
+  .btn-ghost:hover {
+    border-color: var(--textSecondary);
+    color: var(--textPrimary);
+  }
+
+  .trust-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--textMuted);
+  }
+  .trust-item [data-icon] {
+    color: var(--accent);
+    font-size: 1rem;
+  }
+
+  /* --- Visual side --- */
+  .visual-side {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .big-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: 0 8px 40px rgba(20, 20, 20, 0.09);
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+  .tower-icon {
+    font-size: 2.4rem;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .card-title {
+    font-family: "DM Sans", sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--textPrimary);
+    margin-bottom: 0.1rem;
+  }
+  .card-sub {
+    font-size: 0.78rem;
+    color: var(--textMuted);
+  }
+
+  .progress-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .progress-row {
+    display: grid;
+    grid-template-columns: 44px 1fr 42px;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.8rem;
+    color: var(--textSecondary);
+  }
+  .bar {
+    height: 6px;
+    background: var(--surfaceMuted);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .fill {
+    height: 100%;
+    border-radius: 999px;
+    background: var(--accent);
+    transition: width 0.6s ease;
+  }
+  .fill.warn {
+    background: #f59e0b;
+  }
+  .val {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-align: right;
+  }
+  .val.ok {
+    color: #16a34a;
+  }
+  .val.warn {
+    color: #d97706;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #16a34a;
+    background: rgba(22, 163, 74, 0.07);
+    border: 1px solid rgba(22, 163, 74, 0.18);
+    border-radius: 8px;
+    padding: 0.55rem 0.9rem;
+  }
+  .card-footer [data-icon] {
+    font-size: 1rem;
+  }
+
+  /* Floating pills */
+  .floating-pill {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--textPrimary);
+    box-shadow: 0 4px 16px rgba(20, 20, 20, 0.1);
+    white-space: nowrap;
+  }
+  .floating-pill [data-icon] {
+    color: var(--accent);
+    font-size: 0.9rem;
+  }
+  .pill-a {
+    top: -0.75rem;
+    right: -0.5rem;
+  }
+  .pill-b {
+    bottom: 1.5rem;
+    left: -0.5rem;
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      padding: 5rem 0 3.5rem;
+    }
+    .inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .visual-side {
+      order: -1;
+    }
+    .big-card {
+      max-width: 100%;
+    }
+    .pill-a {
+      right: 0.5rem;
+    }
+    .pill-b {
+      left: 0.5rem;
+    }
+  }
+</style>

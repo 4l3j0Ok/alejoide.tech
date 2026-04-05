@@ -1,0 +1,106 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import "@fontsource-variable/inter";
+import "@fontsource/dm-sans/400.css";
+import "@fontsource/dm-sans/700.css";
+import { colors } from "../config/colors.js";
+import Banner from "../components/Banner.astro";
+
+interface Props {
+  title: string;
+  description: string;
+}
+---
+
+<!doctype html>
+<html lang="es-ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={Astro.props.description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{Astro.props.title}</title>
+  </head>
+  <body>
+    <Banner
+      message="<p>¿Necesitas una pagina web como esta para tu negocio o emprendimiento? Visita <a href='https://www.alejoide.com' target='_blank' rel='noopener noreferrer' style='text-decoration: underline;'>www.alejoide.com</a> para ver mis servicios de desarrollo web.</p>"
+    />
+    <Navbar />
+    <slot />
+    <Footer />
+  </body>
+</html>
+
+<style
+  is:global
+  define:vars={{
+    bgPage: colors.bgPage,
+    bgSection: colors.bgSection,
+    bgDark: colors.bgDark,
+    accent: colors.accent,
+    accentLight: colors.accentLight,
+    accentDark: colors.accentDark,
+    textPrimary: colors.textPrimary,
+    textSecondary: colors.textSecondary,
+    textOnDark: colors.textOnDark,
+    textMuted: colors.textMuted,
+    border: colors.border,
+    surface: colors.surface,
+    surfaceMuted: colors.surfaceMuted,
+    contentWidth: "min(1100px, 92vw)",
+  }}
+>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: "Inter Variable", "Inter", system-ui, sans-serif;
+    color: var(--textPrimary);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--bgPage);
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "DM Sans", system-ui, sans-serif;
+    color: var(--textPrimary);
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+    line-height: 1.7;
+    color: var(--textSecondary);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.18s ease;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

@@ -1,0 +1,110 @@
+---
+import Logo from "./Logo.astro";
+import { Icon } from "astro-icon/components";
+
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <div class="inner">
+    <div class="top">
+      <div class="brand">
+        <Logo whiteLogo="true" />
+        <p>
+          Servicio técnico de PCs. Atención rápida<br />y soluciones reales.
+        </p>
+      </div>
+      <nav class="nav-col">
+        <span class="col-title">Navegación</span>
+        <a href="#Services">Servicios</a>
+        <a href="#Works">Trabajos</a>
+      </nav>
+      <div class="social-col">
+        <span class="col-title">Redes</span>
+        <a href="https://www.alejoide.com" target="_blank" class="social-link">
+          <Icon name="mdi:web" /> Sitio Personal
+        </a>
+        <a
+          href="https://github.com/4l3j0Ok"
+          target="_blank"
+          class="social-link"
+        >
+          <Icon name="mdi:github" /> GitHub
+        </a>
+      </div>
+    </div>
+    <div class="bottom">
+      <p>© {year} Alejoide.tech — Alejo Sarmiento</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: var(--bgDark);
+    color: var(--textOnDark);
+    padding: 3.5rem 0 1.5rem;
+  }
+  .inner {
+    width: var(--contentWidth);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+  }
+  .brand p {
+    margin-top: 0.75rem;
+    font-size: 0.88rem;
+    color: rgba(240, 237, 232, 0.6);
+    line-height: 1.6;
+  }
+  .col-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.9rem;
+  }
+  .nav-col,
+  .social-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .nav-col a,
+  .social-col a {
+    font-size: 0.9rem;
+    color: rgba(240, 237, 232, 0.7);
+  }
+  .nav-col a:hover,
+  .social-col a:hover {
+    color: var(--textOnDark);
+  }
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 1.25rem;
+  }
+  .bottom p {
+    font-size: 0.82rem;
+    color: rgba(240, 237, 232, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .top {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>

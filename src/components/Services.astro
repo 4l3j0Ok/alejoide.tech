@@ -1,0 +1,157 @@
+---
+import Section from "../layouts/Section.astro";
+import { Icon } from "astro-icon/components";
+import { services } from "../config/services";
+---
+
+<Section sectionId="Services" bg="muted">
+  <div class="section-label">Servicios</div>
+  <h2 class="section-title">¿Qué problema tenés?</h2>
+  <p class="section-sub">
+    Desde una PC que no enciende hasta un equipo nuevo que querés armar —
+    cubrimos todo el espectro del hardware y software.
+  </p>
+
+  <div class="grid">
+    {
+      services.map((s) => (
+        <article class="card" style={`--c: ${s.color}`}>
+          <div class="icon-box">
+            <Icon name={s.icon} />
+          </div>
+          <div class="card-body">
+            <h3>{s.title}</h3>
+            <p>{s.description}</p>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+
+  <div class="bottom-cta">
+    <p>
+      ¿Tu equipo tiene un problema? Contanos qué pasa y buscamos la solución.
+    </p>
+    <a href="#Contact" class="btn">Solicitar servicio</a>
+  </div>
+</Section>
+
+<style>
+  .section-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.7rem;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+  .section-sub {
+    font-size: 1.02rem;
+    color: var(--textSecondary);
+    max-width: 54ch;
+    margin-bottom: 2.5rem;
+    line-height: 1.65;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition:
+      box-shadow 0.18s ease,
+      border-color 0.18s ease;
+  }
+  .card:hover {
+    box-shadow: 0 4px 16px rgba(20, 20, 20, 0.07);
+    border-color: color-mix(in srgb, var(--c) 35%, transparent);
+  }
+
+  .icon-box {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--c) 10%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    color: var(--c);
+    flex-shrink: 0;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .card-body h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--textPrimary);
+  }
+  .card-body p {
+    font-size: 0.81rem;
+    line-height: 1.5;
+    color: var(--textSecondary);
+  }
+
+  /* Bottom CTA */
+  .bottom-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.4rem 1.75rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    flex-wrap: wrap;
+  }
+  .bottom-cta p {
+    font-size: 0.97rem;
+    font-weight: 500;
+    color: var(--textPrimary);
+    max-width: 50ch;
+  }
+  .btn {
+    padding: 0.65rem 1.3rem;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 7px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    transition: background 0.18s ease;
+  }
+  .btn:hover {
+    background: var(--accentDark);
+    color: #fff;
+  }
+
+  @media (max-width: 640px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    .bottom-cta {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

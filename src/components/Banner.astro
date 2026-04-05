@@ -1,0 +1,51 @@
+---
+interface Props {
+  message?: string;
+  bg?: "white" | "muted" | "dark" | "accent" | "ok" | "warn";
+}
+
+const { message = "Mensaje de prueba", bg = "accent" } = Astro.props;
+---
+
+<div class={`banner bg-${bg}`}>
+  <Fragment set:html={message} />
+</div>
+
+<style>
+  .banner {
+    width: 100%;
+    padding: 0.75rem;
+    text-align: center;
+    color: #fff;
+    font-weight: 400;
+    font-size: 0.7rem;
+  }
+  .banner :global(*) {
+    color: inherit;
+  }
+  .bg-white {
+    background-color: var(--bgSection);
+    color: var(--textPrimary);
+  }
+  .bg-muted {
+    background-color: var(--surfaceMuted);
+    color: var(--textPrimary);
+  }
+  .bg-dark {
+    background-color: var(--bgDark);
+  }
+  .bg-accent {
+    background-color: var(--accent);
+  }
+  .bg-ok {
+    background-color: #16a34a;
+  }
+  .bg-warn {
+    background-color: #dc2626;
+  }
+  @media (max-width: 640px) {
+    .banner {
+      font-size: 0.65rem;
+    }
+  }
+</style>

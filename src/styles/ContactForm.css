@@ -1,0 +1,108 @@
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-col.full {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+input,
+textarea,
+select {
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  background: #fff;
+  color: #141414;
+  font-family: "Inter Variable", "Inter", system-ui, sans-serif;
+  font-size: 0.9rem;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #e8621a;
+  box-shadow: 0 0 0 3px rgba(232, 98, 26, 0.12);
+}
+
+textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23555' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  padding-right: 2.2rem;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 0.72rem 1.2rem;
+  background: #e8621a;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-weight: 700;
+  font-family: "Inter Variable", "Inter", system-ui, sans-serif;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.15s ease;
+  margin-top: 0.25rem;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background: #c04e10;
+  transform: translateY(-1px);
+}
+
+button[type="submit"]:disabled {
+  background: #d1d5db;
+  color: #6b7280;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.response-msg {
+  padding: 0.7rem 1rem;
+  border-radius: 7px;
+  font-size: 0.86rem;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 0.25rem;
+}
+.response-msg.success {
+  background: #dcfce7;
+  border: 1px solid #86efac;
+  color: #15803d;
+}
+.response-msg.error {
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+  color: #dc2626;
+}
+
+@media (max-width: 640px) {
+  .form-row { grid-template-columns: 1fr; }
+}

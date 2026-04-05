@@ -1,0 +1,39 @@
+---
+const { class: className, ...rest } = Astro.props;
+const { whiteLogo } = Astro.props;
+---
+
+<a href="/" class:list={["logo", className]} {...rest}>
+  <span class="icon">⚙</span>
+  <span class="wordmark">alejoide<span class="dot">.</span>tech</span>
+</a>
+
+<style>
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    user-select: none;
+  }
+  .icon {
+    font-size: 1.35rem;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .wordmark {
+    font-family: "DM Sans", system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    if (whiteLogo) {
+      color: #fff;
+    }
+    else {
+      color: var(--textPrimary);
+    }
+    letter-spacing: -0.01em;
+  }
+  .dot {
+    color: var(--accent);
+  }
+</style>
