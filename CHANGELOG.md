@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/4l3j0Ok/alejoide.tech/compare/1.0.0...1.0.1) (2026-04-05)
+
+
+### Bug Fixes
+
+* **ci:** remove projects-api environment file creation logic from deployment script ([9d9d6e4](https://github.com/4l3j0Ok/alejoide.tech/commit/9d9d6e446356cf61c5b012a2768693ace1d73ed1))
+
 # 1.0.0 (2026-04-05)
 
 
