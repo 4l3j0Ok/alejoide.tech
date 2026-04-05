@@ -5,23 +5,9 @@ services:
     restart: unless-stopped
     env_file:
       - ./config/web/.env
-
-  nginx:
-    image: nginx:1.29-alpine
-    container_name: alejoide-tech-nginx
-    env_file:
-      - ./config/nginx/.env
-    volumes:
-      - ./config/nginx/nginx.conf:/etc/nginx/templates/default.conf.template:ro
-    restart: always
-    depends_on:
-      - alejoide-tech
     networks:
       - nginx-proxy
-
-volumes:
-  projects-api-data:
-    name: projects-api-data
+      - default
 
 networks:
   nginx-proxy:
